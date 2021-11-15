@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>To-Do-List</title>
+</head>
+<body >
+    <style>
+        body{
+            background-image: url('imgs/wp3701544-to-do-list-wallpapers.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+
+    <div id="items" class="header">
+        <h1><%= kindOfDay %></h1>
+    </div>
+
+    <div id="items" class="items">
+        <form action="/delete" method="POST">
+            <% for(var i = 0; i < newItem.length;i++){ %>
+               <ul id="check"> <input id="obj" type="checkbox" name ="checkbox" value="<%= itemsId[i] %>" onChange="this.form.submit()"> <p><%= newItem[i] %></p> </ul>
+            <% } %>
+        </form>
+
+    <form action="/" method="POST">
+        <input id="input" type="text" placeholder="Enter item to add" name="items" required autofocus>
+        <button type="submit" id="button">+</button>
+    </form>
+    </div>
+</body>
+</html>
